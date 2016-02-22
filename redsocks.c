@@ -411,7 +411,7 @@ static int redsocks_socket_geterrno(redsocks_client *client, struct bufferevent 
 	return pseudo_errno;
 }
 
-static void redsocks_event_error(struct bufferevent *buffev, short what, void *_arg)
+void redsocks_event_error(struct bufferevent *buffev, short what, void *_arg)
 {
 	redsocks_client *client = _arg;
 	assert(buffev == client->relay || buffev == client->client);
@@ -545,7 +545,7 @@ int redsocks_write_helper(
 	return redsocks_write_helper_ex(buffev, client, mkmessage, state, wm_only, wm_only);
 }
 
-static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
+void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
 {
 	redsocks_client *client = _arg;
 

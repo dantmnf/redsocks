@@ -52,6 +52,8 @@ const int direct_status_fail = 91;
 const int direct_status_no_ident = 92;
 const int direct_status_fake_ident = 93;
 
+void redsocks_event_error(struct bufferevent *buffev, short what, void *_arg);
+void redsocks_relay_connected(struct bufferevent *buffev, void *_arg);
 
 void direct_client_init(redsocks_client *client)
 {
